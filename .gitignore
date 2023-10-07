@@ -1,3 +1,5 @@
 
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.swiftpm/xcode/package.xcworkspace/xcuserdata/musicmaker.xcuserdatad/UserInterfaceState.xcuserstate
+.swiftpm/
+.DS_Store
+.build/
+Package.resolved

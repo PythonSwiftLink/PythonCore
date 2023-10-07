@@ -1,75 +1,34 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
-let framework_path = "Frameworks310"
-var package_targets = [Target]()
-package_targets.append(
-    .target(
-        name: "PythonLib",
-        dependencies: ["Python"],
-        linkerSettings: [
-            .linkedLibrary("ncurses"),
-            .linkedLibrary("ffi"),
-            .linkedLibrary("sqlite3"),
-            .linkedLibrary("z"),
-            .linkedLibrary("panel"),
-            
-        ]
-    )
-    
-)
 
-
-package_targets.append(
-    .binaryTarget(
-        name: "Python",
-        url: "https://github.com/PythonSwiftLink/PythonAppleSupport/archive/refs/tags/3.10-iOS.b6.zip",
-        checksum: "3379ebd2bcebf478f05a3aae9fa2109a3b445992bafd15838cdc9ec8d3532fcd"
-    )
-)
 
 let package = Package(
-    name: "PythonLib",
+    name: "PythonCore",
+    platforms: [.macOS(.v11), .iOS(.v13)],
     products: [
         .library(
-            name: "PythonLib",
-            targets: ["PythonLib"]
+            name: "PythonCore",
+            targets: ["PythonCore"]
         ),
     ],
-    targets: package_targets
+    targets: [
+        .target(
+            name: "PythonCore",
+            dependencies: ["Python"],
+            linkerSettings: [
+                .linkedLibrary("ncurses"),
+                //.linkedLibrary("ffi"),
+                .linkedLibrary("sqlite3"),
+                .linkedLibrary("z"),
+                //.linkedLibrary("panel"),
+                
+            ]
+        ),
+		.binaryTarget(name: "Python", path: "Python.zip")
+    ]
 )
-
-
-
-//let package = Package(
-//    name: "PythonLib",
-//    products: [
-//        .library(
-//            name: "PythonLib",
-//            targets: ["PythonLib"]
-//        ),
-//    ],
-//    targets: [
-//        .target(
-//            name: "PythonLib",
-//            dependencies: ["Python"],
-//            linkerSettings: [
-//                .linkedLibrary("ncurses"),
-//                .linkedLibrary("ffi"),
-//                .linkedLibrary("sqlite3"),
-//                .linkedLibrary("z"),
-//                .linkedLibrary("panel"),
-//
-//            ]
-//        ),
-//        .binaryTarget(
-//            name: "Python",
-//            url: "https://github.com/PythonSwiftLink/PythonAppleSupport/archive/refs/tags/3.10-iOS.b6.zip",
-//            checksum: "a5e256b619be86b10b93118e6a277f3a9e98dc7eaf57d3059c56fdbd074a0314"
-//        ),
-//    ]
-//)
 
 
 
