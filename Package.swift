@@ -19,11 +19,8 @@ let package = Package(
             dependencies: ["Python"],
             linkerSettings: [
                 .linkedLibrary("ncurses"),
-                //.linkedLibrary("ffi"),
                 .linkedLibrary("sqlite3"),
                 .linkedLibrary("z"),
-                //.linkedLibrary("panel"),
-                
             ]
         ),
 		.binaryTarget(name: "Python", path: "Python.zip")
