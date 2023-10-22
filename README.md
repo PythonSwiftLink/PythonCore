@@ -1,3 +1,2 @@
-# MyPoint
+# PythonCore
 
-A description of this package.
