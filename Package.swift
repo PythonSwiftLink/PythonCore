@@ -32,6 +32,6 @@ let package = Package(
         		.linkedLibrary("sqlite3"), 
         	]
     	), 
-    	.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/310.0.0/Python.zip", checksum: "593931519129ce602cc51cad190f294cf39183450e0215ffa4e724391a62c5bb"), 
+    	.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.0/Python.zip", checksum: "1a73a901249dcd821e446105ce151e5396072f59ecf4e8625ce3a95d0f6a6a1f"), 
     ]
 )
