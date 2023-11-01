@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PythonCore", 
-    platforms: [.iOS(.v13)], 
+    platforms: [.iOS(.v13), .macOS(.v11)], 
     products: [
     	.library(
         	name: "PythonCore", 
@@ -32,6 +32,6 @@ let package = Package(
         		.linkedLibrary("sqlite3"), 
         	]
     	), 
-    	.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.0/Python.zip", checksum: "9980cc27a1389cc66f8c79b739fb82d2569a7068f8d52b2bd5d54ced86b86035"), 
+    	.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.1/Python.zip", checksum: "a7edf861252ef04d71c20a5a15d285682316ae1641140aaee07bfb9c474b7a0a"), 
     ]
 )
