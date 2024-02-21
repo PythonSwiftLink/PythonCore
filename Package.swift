@@ -10,8 +10,9 @@ let package = Package(
     	.library(
         	name: "PythonCore", 
         	targets: [
-        		"PythonCore", 
-        	"Python"
+        		"PythonCore",
+				"Python",
+				"PythonExtra"
         	]
     	), 
     ], 
@@ -21,8 +22,9 @@ let package = Package(
     	.target(
         	name: "PythonCore", 
         	dependencies: [
-        		"Python", 
-        	], 
+        		"Python",
+				"PythonExtra"
+        	],
         	resources: [
         	], 
         	linkerSettings: [
@@ -32,6 +34,17 @@ let package = Package(
         		.linkedLibrary("sqlite3"), 
         	]
     	), 
-    	.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.1/Python.zip", checksum: "a7edf861252ef04d71c20a5a15d285682316ae1641140aaee07bfb9c474b7a0a"), 
+			.target(
+				name: "PythonExtra",
+				dependencies: [
+					"Python"
+				]
+				   
+			),
+		.target(
+			name: "TestPython",
+			dependencies: ["PythonCore"]
+		),
+		.binaryTarget(name: "Python", path: "Python.xcframework")
     ]
 )
