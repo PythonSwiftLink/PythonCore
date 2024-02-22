@@ -12,7 +12,6 @@ let package = Package(
 			targets: [
 				"PythonCore", 
 				"Python", 
-				"PythonExtra"
 			]
 		), 
 	], 
@@ -23,7 +22,8 @@ let package = Package(
 			name: "PythonCore", 
 			dependencies: [
 				"Python", 
-			], 
+				"PythonExtra"
+			],
 			resources: [
 			], 
 			linkerSettings: [

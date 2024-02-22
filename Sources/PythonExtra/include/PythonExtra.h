@@ -5,8 +5,8 @@
 //  Created by CodeBuilder on 21/01/2024.
 //
 
-#ifndef Header_h
-#define Header_h
+#ifndef PythonExtra_h
+#define PythonExtra_h
 #include "Python.h"
 PyObject* PyNone;
 PyObject* PyTrue;
@@ -26,4 +26,4 @@ unsigned int PyUnicode_GetKind(PyObject *o);
 PyTypeObject NewPyType(PyTypeObject *type) ;
 
 
-#endif /* Header_h */
+#endif /* PythonExtra_h */
