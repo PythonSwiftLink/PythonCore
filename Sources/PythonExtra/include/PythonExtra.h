@@ -4,6 +4,9 @@
 //
 //  Created by CodeBuilder on 21/01/2024.
 //
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifndef PythonExtra_h
 #define PythonExtra_h
@@ -27,3 +30,8 @@ PyTypeObject NewPyType(PyTypeObject *type) ;
 
 
 #endif /* PythonExtra_h */
+
+
+#ifdef __cplusplus
+}
+#endif
