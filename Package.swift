@@ -1,5 +1,5 @@
 
-// swift-tools-version: 5.8
+// swift-tools-version: 5.9
 
 import PackageDescription
 
@@ -10,8 +10,9 @@ let package = Package(
 		.library(
 			name: "PythonCore", 
 			targets: [
-				"PythonCore", 
-				"Python", 
+				"PythonCore",
+				//"Python",
+                //"CPython"
 			]
 		), 
 	], 
@@ -19,13 +20,12 @@ let package = Package(
 	], 
 	targets: [
 		.target(
-			name: "PythonCore", 
+			name: "Python",
 			dependencies: [
-				"Python", 
-				"PythonExtra"
+				"libPython",
 			],
 			resources: [
-			], 
+			],
 			linkerSettings: [
 				.linkedLibrary("bz2"), 
 					.linkedLibrary("z"), 
@@ -33,17 +33,34 @@ let package = Package(
 					.linkedLibrary("sqlite3"), 
 			]
 		), 
-			.target(
-				name: "PythonExtra", 
-				dependencies: [
-					"Python"
-				]
-				
-			), 
-			.target(
-				name: "TestPython", 
-				dependencies: ["PythonCore"]
-			), 
-			.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.2/Python.zip", checksum: "410d57419f0ccbc563ab821e3aa241a4ed8684888775f4bdea0dfc70820b9de6"), 
+//////			.target(
+//////				name: "PythonExtra", 
+//////				dependencies: [
+//////					"Python"
+//////				]
+//////				
+//////			),
+        
+        .target(
+            name: "PythonCore",
+            dependencies: [
+                "Python"
+            ],
+            resources: [
+            ],
+            linkerSettings: [
+                .linkedLibrary("z"),
+                .linkedLibrary("bz2"),
+                .linkedLibrary("sqlite3"),
+                .linkedLibrary("ncurses")
+            ],
+            plugins: []
+        ),
+//			.target(
+//				name: "TestPython", 
+//				dependencies: ["PythonCore"]
+//			),
+        .binaryTarget(name: "libPython", path: "libPython.xcframework")
+			//.binaryTarget(name: "Python", url: "https://github.com/PythonSwiftLink/PythonCore/releases/download/311.0.2/Python.zip", checksum: "410d57419f0ccbc563ab821e3aa241a4ed8684888775f4bdea0dfc70820b9de6"),
 	]
 )

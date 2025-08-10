@@ -18,7 +18,7 @@ jobs:
     name: Build Python
     # The type of runner that the job will run on
     #runs-on: self-hosted
-    runs-on: macos-13
+    runs-on: macos-latest
     permissions:
         contents: write
 
@@ -48,13 +48,13 @@ jobs:
           brew tap PythonSwiftLink/tools
           brew install swiftpackagegen
 
-      - name: make python iOS
-        working-directory: ./PythonApple
-        run: make iOS
+      # - name: make python iOS
+      #   working-directory: ./PythonApple
+      #   run: make iOS
 
-      - name: make python macOS
-        working-directory: ./PythonApple
-        run: make macOS
+      # - name: make python macOS
+      #   working-directory: ./PythonApple
+      #   run: make macOS
             
       - name: create multiplatform xcframework
         run: |
