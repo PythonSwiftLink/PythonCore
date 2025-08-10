@@ -1,4 +1,5 @@
 
+
 // swift-tools-version: 5.9
 
 import PackageDescription
@@ -51,6 +52,6 @@ let package = Package(
 //				dependencies: ["PythonCore"]
 //			),
         //.binaryTarget(name: "libPython", path: "libPython.xcframework")
-		.binaryTarget(name: "libPython", url: "https://github.com/Py-Swift/PythonCore/releases/download/311.11.0/libPython.zip", checksum: "45e1150b6aead7d13f9363cc99f8fe897a574b1db6a8d29b9cb303a2262f960e"),
+		.binaryTarget(name: "libPython", url: "https://github.com/Py-Swift/PythonCore/releases/download/311.11.0/libPython.zip", checksum: "8b796ce3deb55b59c7f203b299e5072d8d4fcccd28e36be5377576e23a1163be"),
 	]
 )
