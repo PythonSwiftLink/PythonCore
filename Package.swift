@@ -52,6 +52,6 @@ let package = Package(
 //				dependencies: ["PythonCore"]
 //			),
         //.binaryTarget(name: "libPython", path: "libPython.xcframework")
-		.binaryTarget(name: "libPython", url: "https://github.com/Py-Swift/PythonCore/releases/download/311.11.1/libPython.zip", checksum: "25bd43626ca1a675902f54bdda897ad73ba53d345013f7d9ef6aefc206fbbda0"),
+		.binaryTarget(name: "libPython", url: "https://github.com/Py-Swift/PythonCore/releases/download/311.11.2/libPython.zip", checksum: "3eb5f2df5608cde13a5ac4884446e42524a5aa4b49708a6d289885c0d36dec83"),
 	]
 )
