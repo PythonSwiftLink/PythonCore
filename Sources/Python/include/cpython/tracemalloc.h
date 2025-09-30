@@ -1,7 +1,10 @@
+#ifndef Py_LIMITED_API
 #ifndef Py_TRACEMALLOC_H
 #define Py_TRACEMALLOC_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-#ifndef Py_LIMITED_API
 /* Track an allocated memory block in the tracemalloc module.
    Return 0 on success, return -1 on error (failed to allocate memory to store
    the trace).
@@ -22,17 +25,8 @@ PyAPI_FUNC(int) PyTraceMalloc_Untrack(
     unsigned int domain,
     uintptr_t ptr);
 
-/* Get the traceback where a memory block was allocated.
-
-   Return a tuple of (filename: str, lineno: int) tuples.
-
-   Return None if the tracemalloc module is disabled or if the memory block
-   is not tracked by tracemalloc.
-
-   Raise an exception and return NULL on error. */
-PyAPI_FUNC(PyObject*) _PyTraceMalloc_GetTraceback(
-    unsigned int domain,
-    uintptr_t ptr);
+#ifdef __cplusplus
+}
 #endif
-
-#endif /* !Py_TRACEMALLOC_H */
+#endif  // !Py_TRACEMALLOC_H
+#endif  // !Py_LIMITED_API
